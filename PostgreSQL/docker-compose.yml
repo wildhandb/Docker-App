@@ -1,0 +1,17 @@
+services:
+  postgresql:
+    image: postgres:latest
+    container_name: postgresql
+    restart: always
+    shm_size: 256mb
+    ports:
+      - 5431:5432
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+volumes:
+  postgresql:
+    driver: local

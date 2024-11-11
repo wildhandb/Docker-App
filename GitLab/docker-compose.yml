@@ -1,0 +1,24 @@
+services:
+  gitlab-ce:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab-ce
+    restart: always
+    ports:
+      - 8080:80
+      - 443:443
+      - 22:22
+    volumes:
+      - gitlab-ce-config:/etc/gitlab
+      - gitlab-ce-data:/var/opt/gitlab
+      - gitlab-ce-logs:/var/log/gitlab
+    environment:
+      TZ: Asia/Jakarta
+      # GITLAB_OMNIBUS_CONFIG: gitlab.local
+
+volumes:
+  gitlab-ce-config:
+    driver: local
+  gitlab-ce-data:
+    driver: local
+  gitlab-ce-logs:
+    driver: local

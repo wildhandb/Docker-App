@@ -1,11 +1,14 @@
 services:
-  openWebUI:
+  open-webui:
     image: ghcr.io/open-webui/open-webui:main
-    container_name: openwebui
-    hostname: openwebui
+    container_name: open-webui
     ports:
       - 3000:8080
     volumes:
-      - ./data/open-webui:/app/backend/data
-    env_file:
-      - .env
+      - open-webui:/app/backend/data
+    environment:
+      TZ: Asia/Jakarta
+
+volumes:
+  open-webui:
+    driver: local

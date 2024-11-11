@@ -3,6 +3,7 @@ x-minio: &minio-mnsd
   command: server http://minio-mnsd-{1...3}/data --console-address ":9001"
   restart: always
   environment:
+    TZ: Asia/Jakarta
     MINIO_ROOT_USER: root
     MINIO_ROOT_PASSWORD: minio-mnsd
 
@@ -14,18 +15,24 @@ services:
       - 9000:9000
       - 9001:9001
     volumes:
-      - minio-1/data:/data
+      - minio-1:/data:/data
 
   minio-mnsd-2:
     <<: *minio-mnsd
     container_name: minio-mnsd-2
     volumes:
-      - minio-2/data:/data
+      - minio-2:/data:/data
 
   minio-mnsd-3:
     <<: *minio-mnsd
     container_name: minio-mnsd-3
     volumes:
-      - minio-3/data:/data
+      - minio-3:/data:/data
 
-  
+volumes:
+  minio-1:
+    external: true
+  minio-2:
+    external: true
+  minio-3:
+    external: true

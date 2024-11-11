@@ -1,0 +1,19 @@
+services:
+  oracle-database:
+    image: container-registry.oracle.com/database/enterprise
+    container_name: oracle-database
+    restart: always
+    ports:
+      - 1521:1521
+      - 5500:5500
+    volumes:
+      - oracle-database:/opt/oracle/oradata
+    environment:
+      ORACLE_SID: ORCL
+      ORACLE_PASSWORD: password
+      ORACLE_EDITION: standard
+      ORACLE_CHARACTERSET: AL32UTF8
+
+volumes:
+  oracle-database:
+    driver: local

@@ -5,10 +5,15 @@ services:
     command: server data --console-address ":9001"
     restart: always
     environment:
+      TZ: Asia/Jakarta
       MINIO_ROOT_USER: root
       MINIO_ROOT_PASSWORD: minio-snsd
     ports:
       - 9000:9000
       - 9001:9001
     volumes:
-      - minio/data:/data
+      - minio:/data:/data
+
+volumes:
+  minio:
+    external: true
