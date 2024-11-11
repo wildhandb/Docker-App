@@ -1,0 +1,16 @@
+services:
+  minio-snmd:
+    image: quay.io/minio/minio:latest
+    container_name: minio-snmd
+    command: server data-{1...3} --console-address ":9001"
+    restart: always
+    environment:
+      MINIO_ROOT_USER: root
+      MINIO_ROOT_PASSWORD: 120500edbMinio
+    ports:
+      - 9000:9000
+      - 9001:9001
+    volumes:
+      - D:\Minio\data-1:/data-1
+      - D:\Minio\data-2:/data-2
+      - D:\Minio\data-3:/data-3
