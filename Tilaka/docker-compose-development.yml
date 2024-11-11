@@ -1,0 +1,19 @@
+services:
+  tilaka-lite:
+    image: tilaka/tilaka-lite:1.0.3RC4
+    container_name: tilaka-lite-dev
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./application.properties.sandbox:/usr/src/app/config/application.properties
+      - ./trusted-kominfo-peruri-tilaka-dev.jks:/usr/src/app/trusted-kominfo-peruri-tilaka.jks
+    ports:
+      - 8087:8088
+    networks:
+      - tilaka_dev
+    environment:
+      - JAVA_HEAP_SIZE=512m
+
+networks:
+  tilaka_dev:
+    external: true
