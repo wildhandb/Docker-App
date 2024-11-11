@@ -1,3 +1,5 @@
+name: docker_template
+
 services:
   mariadb:
     image: mariadb:latest
@@ -9,10 +11,10 @@ services:
       - mariadb:/var/lib/mysql
     environment:
       TZ: Asia/Jakarta
-      MYSQL_ROOT_PASSWORD: example_password
+      MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mydatabase
       MYSQL_USER: myuser
-      MYSQL_PASSWORD: myuserpassword
+      MYSQL_PASSWORD: mypassword
 
 volumes:
   mariadb:

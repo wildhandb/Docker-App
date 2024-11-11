@@ -12,10 +12,20 @@ services:
       - 9000:9000
       - 9001:9001
     volumes:
-      - minio:/data-1:/data-1
-      - minio:/data-2:/data-2
-      - minio:/data-3:/data-3
+      - minio-data:/data
+      - minio-data-1:/data-1
+      - minio-data-2:/data-2
+      - minio-data-3:/data-3
 
 volumes:
-  minio:
-    external: true
+  minio-data:
+    driver: local
+    
+  minio-data-1:
+    driver: local
+
+  minio-data-2:
+    driver: local
+
+  minio-data-3:
+    driver: local

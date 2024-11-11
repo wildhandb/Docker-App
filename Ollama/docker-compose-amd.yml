@@ -1,0 +1,20 @@
+name: docker_template
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    devices:
+      - /dev/kfd
+      - /dev/dri
+    container_name: ollama-amd
+    restart: always
+    ports:
+      - 11434:11434
+    volumes:
+      - ollama:/root/.ollama
+    environment:
+      TZ: Asia/Jakarta
+
+volumes:
+  ollama:
+    driver: local

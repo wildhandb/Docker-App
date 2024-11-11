@@ -1,3 +1,5 @@
+name: docker_template
+
 services:
   postgresql:
     image: postgres:latest

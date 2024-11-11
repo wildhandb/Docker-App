@@ -1,3 +1,5 @@
+name: docker_template
+
 services:
   tilaka-lite:
     image: tilaka/tilaka-lite:1.0.3

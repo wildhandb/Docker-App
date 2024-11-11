@@ -1,8 +1,8 @@
 name: docker_template
 
 services:
-  open-webui:
-    image: ghcr.io/open-webui/open-webui:main
+  ollama:
+    image: ollama/ollama:latest
     deploy:
       resources:
         reservations:
@@ -10,15 +10,15 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
-    container_name: open-webui
+    container_name: ollama-nvidia
     restart: always
     ports:
-      - 3000:8080
+      - 11434:11434
     volumes:
-      - open-webui:/app/backend/data
+      - ollama:/root/.ollama
     environment:
       TZ: Asia/Jakarta
 
 volumes:
-  open-webui:
+  ollama:
     driver: local

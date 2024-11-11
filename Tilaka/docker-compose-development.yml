@@ -1,3 +1,5 @@
+name: docker_template
+
 services:
   tilaka-lite:
     image: tilaka/tilaka-lite:1.0.3RC4
@@ -10,10 +12,10 @@ services:
     ports:
       - 8087:8088
     networks:
-      - tilaka_dev
+      - tilaka-dev
     environment:
       - JAVA_HEAP_SIZE=512m
 
 networks:
-  tilaka_dev:
+  tilaka-dev:
     external: true

@@ -15,24 +15,26 @@ services:
       - 9000:9000
       - 9001:9001
     volumes:
-      - minio-1:/data:/data
+      - minio-1:/data
 
   minio-mnsd-2:
     <<: *minio-mnsd
     container_name: minio-mnsd-2
     volumes:
-      - minio-2:/data:/data
+      - minio-2:/data
 
   minio-mnsd-3:
     <<: *minio-mnsd
     container_name: minio-mnsd-3
     volumes:
-      - minio-3:/data:/data
+      - minio-3:/data
 
 volumes:
   minio-1:
-    external: true
+    driver: local
+
   minio-2:
-    external: true
+    driver: local
+
   minio-3:
-    external: true
+    driver: local

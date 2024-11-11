@@ -1,3 +1,5 @@
+name: docker_template
+
 services:
   mssql-server:
     image: mcr.microsoft.com/mssql/server:2022-latest
