@@ -4,7 +4,7 @@ x-minio: &minio-mnsd
   restart: always
   environment:
     MINIO_ROOT_USER: root
-    MINIO_ROOT_PASSWORD: 120500edbMinio
+    MINIO_ROOT_PASSWORD: minio-mnsd
 
 services:
   minio-mnsd-1:
@@ -14,18 +14,18 @@ services:
       - 9000:9000
       - 9001:9001
     volumes:
-      - D:\Minio\minio-1\data:/data
+      - minio-1/data:/data
 
   minio-mnsd-2:
     <<: *minio-mnsd
     container_name: minio-mnsd-2
     volumes:
-      - D:\Minio\minio-2\data:/data
+      - minio-2/data:/data
 
   minio-mnsd-3:
     <<: *minio-mnsd
     container_name: minio-mnsd-3
     volumes:
-      - D:\Minio\minio-3\data:/data
+      - minio-3/data:/data
 
   

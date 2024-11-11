@@ -6,9 +6,9 @@ services:
     restart: always
     environment:
       MINIO_ROOT_USER: root
-      MINIO_ROOT_PASSWORD: 120500edbMinio
+      MINIO_ROOT_PASSWORD: minio-snsd
     ports:
       - 9000:9000
       - 9001:9001
     volumes:
-      - D:\Minio\data:/data
+      - minio/data:/data
