@@ -15,9 +15,8 @@ services:
     environment:
       TZ: Asia/Jakarta
       ORACLE_SID: ORCL
-      ORACLE_PDB: ORCL
-      ORACLE_PASSWORD: password
-      ORACLE_EDITION: standard
+      ORACLE_PDB: ORCLPDB
+      ORACLE_PWD: password
       ORACLE_CHARACTERSET: AL32UTF8
 
 volumes:
