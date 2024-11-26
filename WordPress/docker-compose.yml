@@ -1,0 +1,22 @@
+name: docker_template
+
+services:
+  wordpress:
+    image: wordpress:6.7-php8.3-apache
+    restart: always
+    ports:
+      - 80:80
+      - 443:80
+    environment:
+      WORDPRESS_DB_HOST: host.docker.internal
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - tunnel
+
+networks:
+  tunnel:
+    external: true

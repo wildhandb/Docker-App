@@ -1,1 +1,13 @@
 name: docker_template
+
+services:
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        DOMAIN: domain.local
+    ports:
+      - 80:80
+    volumes:
+      - website:/var/www/html
